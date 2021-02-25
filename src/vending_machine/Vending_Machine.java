@@ -100,7 +100,6 @@ public class Vending_Machine {
                 break;            
         }
             
-        System.out.println(Drink.debit);
         //Continue shopping or checkout      
         System.out.println("\n1 Continue shopping\n2 Check-out to collect items");
         
@@ -109,7 +108,7 @@ public class Vending_Machine {
             if(wrongNumber)System.out.println("Enter CORRECT number.");
             wrongNumber = false;
             try {
-                System.out.println("Make your choice: ");
+                System.out.print("Make your choice: ");
                 input = GetInput();
                 System.out.println("");
                 if(1 > input || input > 2)wrongNumber = true;
@@ -121,9 +120,8 @@ public class Vending_Machine {
         } while (wrongNumber);           
         } while (input == 1);
 
-        
-        
         //Shopping cart
+        System.out.println("Total cost of ordered items: "+Drink.debit+" SEK.");
        
         
             
@@ -147,6 +145,9 @@ public class Vending_Machine {
         public static void BuyItem(){
             
         }
+            
+           
+        
 }
        
       
