@@ -5,18 +5,21 @@
  */
 package vending_machine;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Bax Musik
  */
-public class Drinks extends MerchAbstract implements MerchInterface{
+public class Drink extends MerchAbstract implements MerchInterface{
     //Attributes
     public String strStillOrSparkling;
+    public static double debit;
    
     
     
     //Constructor
-    public Drinks(String strTypeOfMerch, String name, String strPackage, double price, String strStillOrSparkling){
+    public Drink(String strTypeOfMerch, String name, String strPackage, double price, String strStillOrSparkling){
         super(strTypeOfMerch, name, strPackage, price);
         this.strStillOrSparkling = strStillOrSparkling;
     }
@@ -30,12 +33,16 @@ public class Drinks extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Buy() {
+        System.out.println("It costs "+price+" SEK.");
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.next();
+        if(input.equals("y"))debit += price;       
     }
 
     @Override
     public void Use() {
-        System.out.println("This drink should preferable be enjoyed chilled.");
+        System.out.println("Drinking my "+name+"!");
     }
     
 }

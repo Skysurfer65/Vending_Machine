@@ -5,6 +5,9 @@
  */
 package vending_machine;
 
+import java.util.Scanner;
+import static vending_machine.Drink.debit;
+
 /**
  *
  * @author Bax Musik
@@ -23,19 +26,24 @@ public class Merchandise extends MerchAbstract implements MerchInterface{
     public void Description() {
         System.out.println("This "+name+" is branded with the \"VendingMachine\" logo.");
         System.out.println("It comes in three colors, the one you've choosen is "+color+".");
+        System.out.println("One size fits all with our slick velcro adjustment");
         System.out.println("Our "+name+" comes in a "+strPackage+" which could be used for prolonged storage.");
         System.out.println("50% of item sales price of "+price+" SEK, will go to our local football team.");
     }
 
     @Override
     public void Buy() {
+        System.out.println("It costs "+price+" SEK.");
+        System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.next();
+        if(input.equals("y"))debit += price;   
         
     }
 
     @Override
     public void Use() {
-        System.out.println("One size fits all with our slick velcro adjustment");
-        System.out.println("Bring it out from the "+strPackage+" and use right away!");
+        System.out.println("Bring it out from the "+strPackage+" and put it on right away!");
     }
     
     

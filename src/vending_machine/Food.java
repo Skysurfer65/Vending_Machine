@@ -5,6 +5,9 @@
  */
 package vending_machine;
 
+import java.util.Scanner;
+import static vending_machine.Drink.debit;
+
 /**
  *
  * @author Bax Musik
@@ -28,14 +31,16 @@ public class Food extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Buy() {
-       
+        System.out.println("It costs "+price+" SEK.");
+        System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
+        Scanner scan = new Scanner(System.in);
+        String input = scan.next();
+        if(input.equals("y"))debit += price;    
     }
 
     @Override
     public void Use() {
-        if(name.equals("Snacks"))System.out.println("Our snacks corresponds to food regulations and are suitable from 3 years and up.");
-        else System.out.println("Our selection of sandwiches are changed two times a week and should always \n"
-                + "have at least a week due date on purchase. Should be stored cool and out of direct sunlight.");
+        System.out.println("Eat and smile ;-)");
     }
     
 }
