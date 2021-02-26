@@ -6,7 +6,7 @@
 package vending_machine;
 
 import java.util.Scanner;
-import static vending_machine.Drink.debit;
+import static vending_machine.MyWallet.myDebit;
 
 /**
  *
@@ -37,7 +37,7 @@ public class Merchandise extends MerchAbstract implements MerchInterface{
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
         Scanner scan = new Scanner(System.in);
         String input = scan.next();
-        if(input.equals("y"))debit += price;   
+        if(input.equals("y"))myDebit += price;   
         
     }
 

@@ -26,16 +26,16 @@ public class Inventory {
     
     //Methods
     static void FillMerchList(){
-        merchList.add(item1);
-        merchList.add(item2);
-        merchList.add(item3);
-        merchList.add(item4);
-        merchList.add(item5);
-        merchList.add(item6);
-        //merchList.add(item7);
-        //merchList.add(item8);
-        //merchList.add(item9);
-        //merchList.add(item10);
+        if(item1.price != 0)merchList.add(item1);
+        if(item2.price != 0)merchList.add(item2);
+        if(item3.price != 0)merchList.add(item3);
+        if(item4.price != 0)merchList.add(item4);
+        if(item5.price != 0)merchList.add(item5);
+        if(item6.price != 0)merchList.add(item6);
+        if(item7.price != 0)merchList.add(item7);
+        if(item8.price != 0)merchList.add(item8);
+        if(item9.price != 0)merchList.add(item9);
+        if(item10.price != 0)merchList.add(item10);
         
     }
     static void DescriptionAndBuy(int input){

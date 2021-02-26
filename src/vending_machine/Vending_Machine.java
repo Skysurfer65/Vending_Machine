@@ -65,8 +65,8 @@ public class Vending_Machine {
         } while (input == 1);
 
         //Shopping cart
-        System.out.println("Total cost of ordered items: "+Drink.debit+" SEK.");
-           
+        //System.out.println("Total cost of ordered items: "+MyWallet.myDebit+" SEK.");
+        MyWallet.Balance();
        
         
     }
