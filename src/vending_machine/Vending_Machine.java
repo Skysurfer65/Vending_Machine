@@ -28,9 +28,12 @@ public class Vending_Machine {
 
         } while (input2 == 1);
 
-        //Shopping cart    
-        MyWallet.Balance();
+        //Shopping cart          
         MyWallet.CheckOut();
+        MyWallet.Balance();
+        MyWallet.Change();
+        MyWallet.ByByAndUseTheStuff();
+        
     }
     
         //GetInput function integer
