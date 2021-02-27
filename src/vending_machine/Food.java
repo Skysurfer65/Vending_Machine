@@ -6,7 +6,6 @@
 package vending_machine;
 
 import java.util.Scanner;
-import static vending_machine.MyWallet.myDebit;
 
 /**
  *
@@ -35,7 +34,11 @@ public class Food extends MerchAbstract implements MerchInterface{
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
         Scanner scan = new Scanner(System.in);
         String input = scan.next();
-        if(input.equals("y"))myDebit += price;    
+        if(input.equals("y")){
+            MyWallet.shoppingCartType.add(strTypeOfMerch);
+            MyWallet.shoppingCartName.add(name);
+            MyWallet.shoppingCartPrice.add(price);
+        }   
     }
 
     @Override

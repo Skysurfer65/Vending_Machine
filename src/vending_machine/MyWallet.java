@@ -2,19 +2,24 @@
 package vending_machine;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class MyWallet {
     //Attributes
     static double myCredit = 0;
-    public static double myDebit;
+    public static double myDebit = 0;
     static double balance;
     static String strBalance;
     static int valueCoin1 = 10;
     static int valueCoin5 = 50;
     static int valueCoin10 = 100;
     static int valueBill20 = 200;
+    //Create shoppingCart ArrayLists
+    static ArrayList <String> shoppingCartType = new ArrayList<>();
+    static ArrayList <String> shoppingCartName = new ArrayList<>();
+    static ArrayList <Double> shoppingCartPrice = new ArrayList<>();
     
     
     //Constructor not applicapple as I only need one wallet static variables and methods instead
@@ -26,7 +31,6 @@ public class MyWallet {
     //Methods
     static void AddToCredit(){
         boolean wrongNumber;
-        //Scanner scan = new Scanner(System.in);
         do {            
             wrongNumber = true;
             System.out.println("\nVending Machine");
@@ -82,13 +86,48 @@ public class MyWallet {
 
     
     static void Balance(){
+       /* 
         DecimalFormat df = new DecimalFormat("#.00");//For looks only, 2 decimals
         balance = myCredit - myDebit;
-        
-        strBalance = df.format(balance);
-        
-        
+        strBalance = df.format(balance);        
         System.out.println("Saldot på ditt konto är "+strBalance+" SEK");
+        */
     }   
-    
+    static void CheckOut(){
+        DecimalFormat df = new DecimalFormat("#.00");
+        //Display items in shopping cart
+        if(!shoppingCartName.isEmpty()){
+            System.out.println("\nYou've ordered the following item/items:");
+            for (String name : shoppingCartName) {
+                System.out.println(name);         
+            }
+        } else System.out.println("\nYou've bought no items");
+        
+        //Now find out myDebit
+        for (Double price : shoppingCartPrice) {
+            myDebit += price;        
+        }
+        System.out.println("Total debit is: "+df.format(myDebit)+" SEK.");
+        
+        //Find out finanses
+        System.out.println("Your credit is: "+df.format(myCredit)+" SEK.");
+        if(myCredit < myDebit)System.out.println("\nTo little funds, we will return any credit provided and stop the program.");
+        else{
+            System.out.println("You have sufficient funds, your items will be delivered and any excess credit returned to you.");
+            
+            //check what type of mercandise to make use of Use methods.
+            boolean drink = false;
+            boolean food = false;
+            boolean merchandise = false;
+            for (String type : shoppingCartType) {
+                if(type.equals("drink"))drink = true;
+                if(type.equals("food"))food = true;
+                if(type.equals("merchandise"))merchandise = true;     
+            }
+        }
+        
+        
+        
+        
+    }
 }
