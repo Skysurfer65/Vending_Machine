@@ -11,6 +11,7 @@ public class Vending_Machine {
     
         //Fill upp merchList from Inventory
         Inventory.FillMerchList();
+        MyWallet.AddToCredit();
         
         //Creating dynamic menu with input 
         int input = 0;
@@ -65,7 +66,7 @@ public class Vending_Machine {
         } while (input == 1);
 
         //Shopping cart
-        //System.out.println("Total cost of ordered items: "+MyWallet.myDebit+" SEK.");
+      
         MyWallet.Balance();
        
         
