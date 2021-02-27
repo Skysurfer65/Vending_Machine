@@ -15,13 +15,12 @@ public class MyWallet {
     static int valueCoin5 = 50;
     static int valueCoin10 = 100;
     static int valueBill20 = 200;
-    //boolean drink;
-    //boolean food;
-    //boolean merchandise;
+
     //Create shoppingCart ArrayLists
     static ArrayList <String> shoppingCartType = new ArrayList<>();
     static ArrayList <String> shoppingCartName = new ArrayList<>();
     static ArrayList <Double> shoppingCartPrice = new ArrayList<>();
+    static ArrayList<MerchAbstract> shoppingCart = new ArrayList<>();
     
 
     //Methods
@@ -123,7 +122,6 @@ public class MyWallet {
         else credReturn = (int)balance;
     }
     static void Change(){
-        //int restSum = 0;
         int billsOf1000 = 0;
         int billsOf500 = 0;
         int billsOf200 = 0;
@@ -157,9 +155,12 @@ public class MyWallet {
                 coinsOf10 = (int)(credReturn / 10);
                 credReturn = credReturn - coinsOf10 * 10;
             } else if (credReturn >= 5){
-                coinsOf5 = 1;
-                credReturn = credReturn - 5 ;
-            } else coinsOf1 = credReturn; 
+                coinsOf5 = (int)(credReturn / 5);
+                credReturn = credReturn - coinsOf5 * 5 ;
+            } else{
+                coinsOf1 = credReturn;
+                credReturn = 0;
+            } 
         }
         System.out.println("It will be provided as follows:"
                 +"\n"+billsOf1000+" bills of 1000 SEK."
@@ -174,6 +175,16 @@ public class MyWallet {
     }
     static void ByByAndUseTheStuff(){
         System.out.println("Thank you for shopping with Vending Machine!");
+        //System.out.println(shoppingCart.size());
+        //Check type of merchandise and make use of Use
+        boolean drink = false;
+        boolean food = false;
+        boolean merchandise = false;       
+        for (MerchAbstract type : shoppingCart) {
+            if(type.strTypeOfMerch.equals(drink))drink = true;
+            if(type.strTypeOfMerch.equals(food))food = true;
+            if(type.strTypeOfMerch.equals(merchandise))merchandise = true;         
+        }
         //check what type of mercandise to make use of Use methods.
         /*
         boolean drink = false;

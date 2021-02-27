@@ -40,13 +40,14 @@ public class Merchandise extends MerchAbstract implements MerchInterface{
             MyWallet.shoppingCartType.add(strTypeOfMerch);
             MyWallet.shoppingCartName.add(name);
             MyWallet.shoppingCartPrice.add(price);
+            MyWallet.shoppingCart.add(this);
         } 
         
     }
 
     @Override
     public void Use() {
-        System.out.println("Bring it out from the "+strPackage+" and put it on right away!");
+        System.out.println("\nWhen you get it after checkout bring it out from the "+strPackage+" and put it on right away!");
     }
     
     

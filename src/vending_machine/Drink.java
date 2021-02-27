@@ -41,12 +41,13 @@ public class Drink extends MerchAbstract implements MerchInterface{
             MyWallet.shoppingCartType.add(strTypeOfMerch);
             MyWallet.shoppingCartName.add(name);
             MyWallet.shoppingCartPrice.add(price);
+            MyWallet.shoppingCart.add(this);
         }       
     }
 
     @Override
     public void Use() {
-        System.out.println("Drinking my "+name+"!");
+        System.out.println("\nYou will soon be drinking your "+name+"!");
     }
     
 }
