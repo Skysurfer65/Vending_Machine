@@ -177,6 +177,7 @@ public class MyWallet {
         System.out.println("Thank you for shopping with Vending Machine!");
         //System.out.println(shoppingCart.size());
         //Check type of merchandise and make use of Use
+        
         boolean drink = false;
         boolean food = false;
         boolean merchandise = false;       
