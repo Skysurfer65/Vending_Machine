@@ -24,7 +24,7 @@ public class MyWallet {
     
 
     //Methods
-    static void AddToCredit(){
+    static void AddToCredit(){ //TODO increase to 100SEK bills
         boolean wrongNumber;
         do {            
             wrongNumber = true;
