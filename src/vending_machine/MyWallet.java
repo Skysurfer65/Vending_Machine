@@ -15,11 +15,10 @@ public class MyWallet {
     static int valueCoin5 = 50;
     static int valueCoin10 = 100;
     static int valueBill20 = 200;
+    static int valueBill50 = 500;
+    static int valueBill100 = 1000;
 
     //Create shoppingCart ArrayLists
-    //static ArrayList <String> shoppingCartType = new ArrayList<>();
-    //static ArrayList <String> shoppingCartName = new ArrayList<>();
-    //static ArrayList <Double> shoppingCartPrice = new ArrayList<>();
     static ArrayList<MerchAbstract> shoppingCart = new ArrayList<>();
     
 
@@ -31,11 +30,13 @@ public class MyWallet {
             System.out.println("\nVending Machine");
             System.out.println("_________________");
             System.out.println("\nPut money in the machine: ");
-            System.out.println("1 You have value "+valueCoin1+" SEK in 1 SEK coins.");
-            System.out.println("2 You have value "+valueCoin5+" SEK in 5 SEK coins.");
-            System.out.println("3 You have value "+valueCoin10+" SEK in 10 SEK coins.");
-            System.out.println("4 You have value "+valueBill20+" SEK in 20 SEK bills.");
-            System.out.println("5 EXIT to select items or finish checkout.");
+            System.out.println("1 You have 1 SEK coins to a value of "+valueCoin1+" SEK.");
+            System.out.println("2 You have 5 SEK coins to a value of "+valueCoin5+" SEK.");
+            System.out.println("3 You have 10 SEK coins to a value of "+valueCoin10+" SEK.");
+            System.out.println("4 You have 20 SEK bills to a value of "+valueBill20+" SEK.");
+            System.out.println("5 You have 50 SEK bills to a value of "+valueBill50+" SEK.");
+            System.out.println("6 You have 100 SEK bills to a value of "+valueBill100+" SEK.");
+            System.out.println("7 EXIT to select items or finish checkout.");
             System.out.println("Your current credit: "+myCredit);
             System.out.print("Select a number to add to yor credit: ");
             try {
@@ -66,6 +67,18 @@ public class MyWallet {
                         }
                         break;
                     case 5:
+                        if(valueBill50 >= 50){
+                        myCredit += 50;
+                        valueBill50 -= 50;     
+                        }
+                        break;
+                    case 6:
+                        if(valueBill100 >= 100){
+                        myCredit += 100;
+                        valueBill100 -= 100;     
+                        }
+                        break;
+                    case 7:
                         wrongNumber = false;
                         break;
                     default:
