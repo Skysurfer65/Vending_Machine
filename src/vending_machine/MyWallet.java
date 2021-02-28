@@ -31,11 +31,11 @@ public class MyWallet {
             System.out.println("\nVending Machine");
             System.out.println("_________________");
             System.out.println("\nPut money in the machine: ");
-            System.out.println("1 You have value "+valueCoin1+" SEK in coin 1 SEK");
-            System.out.println("2 You have value "+valueCoin5+" SEK in coin 5 SEK");
-            System.out.println("3 You have value "+valueCoin10+" SEK in coin 10 SEK");
-            System.out.println("4 You have value "+valueBill20+" SEK in bill 20 SEK");
-            System.out.println("5 EXIT");
+            System.out.println("1 You have value "+valueCoin1+" SEK in 1 SEK coins.");
+            System.out.println("2 You have value "+valueCoin5+" SEK in 5 SEK coins.");
+            System.out.println("3 You have value "+valueCoin10+" SEK in 10 SEK coins.");
+            System.out.println("4 You have value "+valueBill20+" SEK in 20 SEK bills.");
+            System.out.println("5 EXIT to select items or finish checkout.");
             System.out.println("Your current credit: "+myCredit);
             System.out.print("Select a number to add to yor credit: ");
             try {
@@ -117,7 +117,7 @@ public class MyWallet {
     static void Balance(){
         balance = myCredit - myDebit;
         
-        if(balance == 0)ByByAndUseTheStuff();
+        if(balance == 0);
         else if(balance < 0)credReturn = (int)myCredit; //double till int automatiskt avrundning neråt
         else credReturn = (int)balance;
     }
@@ -131,7 +131,9 @@ public class MyWallet {
         int coinsOf10 = 0;
         int coinsOf5 = 0;
         int coinsOf1 = 0;
-        System.out.println("Total amount returned will be "+credReturn+" SEK.");
+        String text = "";
+        
+        System.out.println("\nTotal amount returned will be "+credReturn+" SEK.");
         while(credReturn != 0) {
             if(credReturn >= 1000){
                 billsOf1000 = (int)(credReturn / 1000);
@@ -155,23 +157,27 @@ public class MyWallet {
                 coinsOf10 = (int)(credReturn / 10);
                 credReturn = credReturn - coinsOf10 * 10;
             } else if (credReturn >= 5){
-                coinsOf5 = (int)(credReturn / 5);
-                credReturn = credReturn - coinsOf5 * 5 ;
+                coinsOf5 = 1;
+                credReturn -= 5;
             } else{
                 coinsOf1 = credReturn;
                 credReturn = 0;
             } 
         }
-        System.out.println("It will be provided as follows:"
-                +"\n"+billsOf1000+" bills of 1000 SEK."
-                +"\n"+billsOf500+" bills of 500 SEK."
-                +"\n"+billsOf200+" bills of 200 SEK."
-                +"\n"+billsOf100+" bills of 100 SEK."
-                +"\n"+billsOf50+" bills of 50 SEK."
-                +"\n"+billsOf20+" bills of 20 SEK."
-                +"\n"+coinsOf10+" coins of 10 SEK."
-                +"\n"+coinsOf5+" coins of 5 SEK."
-                +"\n"+coinsOf1+" coins of 1 SEK.");
+        //Printout for credReturn
+        if(balance != 0){
+        System.out.println("It will be provided as follows:");
+        if(billsOf1000 != 0)text += "\n"+billsOf1000+" bills of 1000 SEK.";
+        if(billsOf500 != 0)text += "\n"+billsOf500+" bills of 500 SEK.";
+        if(billsOf200 != 0)text += "\n"+billsOf200+" bills of 200 SEK.";
+        if(billsOf100 != 0)text += "\n"+billsOf100+" bills of 100 SEK.";
+        if(billsOf50 != 0)text += "\n"+billsOf50+" bills of 50 SEK.";
+        if(billsOf20 != 0)text += "\n"+billsOf20+" bills of 20 SEK.";
+        if(coinsOf10 != 0)text += "\n"+coinsOf10+" coins of 10 SEK.";
+        if(coinsOf5 != 0)text += "\n"+coinsOf5+" coins of 5 SEK.";
+        if(coinsOf1 != 0)text += "\n"+coinsOf1+" coins of 1 SEK.";
+        System.out.println(text);        
+        }      
     }
     static void ByByAndUseTheStuff(){
         System.out.println("Thank you for shopping with Vending Machine!");

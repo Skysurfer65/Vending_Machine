@@ -75,7 +75,7 @@ public class Vending_Machine {
         public static void MakeMerchMenu(ArrayList merchList){
             int n = 1;
             for (MerchAbstract i : Inventory.merchList) {
-                System.out.println( n +" "+ i.name);
+                System.out.println( n +" "+ i.name+"\t\t"+i.price+" SEK.");
                 n++;}           
         }
         

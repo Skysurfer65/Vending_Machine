@@ -8,13 +8,14 @@ public class Inventory {
     
     //Inventory
     static Drink item1= new Drink("drink", "Coca-Cola", "33cl can", 18, "sparkling");
-    static Drink item2 = new Drink("drink", "Orange-Juice", "50cl bottle", 22, "still");
-    static Food item3 = new Food("food", "Hamsandwich", "150 grams", 25, false);
-    static Food item4 = new Food("food", "Veggiesandwich", "100 grams", 30, true);
+    static Drink item2 = new Drink("drink", "Orange Juice", "50cl bottle", 22, "still");
+    static Food item3 = new Food("food", "Ham Sandwich", "150 grams", 25, false);
+    static Food item4 = new Food("food", "Veggie Sandwich", "100 grams", 30, true);
     static Merchandise item5 = new Merchandise("merchandise", "Baseball Cap Blue", "mesh-net", 50, "blue");
     static Merchandise item6 = new Merchandise("merchandise", "Baseball Cap Red", "mesh-net", 50, "red");
-    static Merchandise item7 = new Merchandise("merchandise", "", "", 0, "");
-    static Merchandise item8 = new Merchandise("merchandise", "", "", 0, "");
+    //Empty inventory to test dynamics, max items in Vending_Machine is 10
+    static Drink item7 = new Drink("drink", "", "", 0, "");
+    static Food item8 = new Food("food", "", "", 0, false);
     static Merchandise item9 = new Merchandise("merchandise", "", "", 0, "");
     static Merchandise item10 = new Merchandise("merchandise", "", "", 0, "");
     

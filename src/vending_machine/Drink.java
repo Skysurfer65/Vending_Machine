@@ -42,7 +42,7 @@ public class Drink extends MerchAbstract implements MerchInterface{
             MyWallet.shoppingCartName.add(name);
             MyWallet.shoppingCartPrice.add(price);
             MyWallet.shoppingCart.add(this);
-        }       
+        }
     }
 
     @Override
