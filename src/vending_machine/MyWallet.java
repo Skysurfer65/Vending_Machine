@@ -94,7 +94,13 @@ public class MyWallet {
             }            
         } while (wrongNumber);  
     }
-
+    
+    static void FindOutMyDebt(){
+        //Now find out myDebit
+        for (MerchAbstract price : shoppingCart) {
+            myDebit += price.price;        
+        }        
+    }
       
     static void CheckOut(){
         DecimalFormat df = new DecimalFormat("0.00");
@@ -105,16 +111,12 @@ public class MyWallet {
                 System.out.println(name.name);         
             }
         } else System.out.println("\nYou've bought no items");
-        
-        //Now find out myDebit
-        for (MerchAbstract price : shoppingCart) {
-            myDebit += price.price;        
-        }
+
         System.out.println("Total debit is: "+df.format(myDebit)+" SEK.");
         
         //Find out finanses
         System.out.println("Your credit is: "+df.format(myCredit)+" SEK.");
-        if(myCredit < myDebit)System.out.println("\nTo little funds, we will return any credit provided and stop the program.");
+        if(myCredit < myDebit)System.out.println("\nTo little funds!!!");
         else{
             if(!shoppingCart.isEmpty())System.out.println("You have sufficient funds, your items will be delivered and any excess credit returned to you.");
             else System.out.println("Your excess credit will be returned to you.");
@@ -127,6 +129,34 @@ public class MyWallet {
         else if(balance < 0)credReturn = (int)myCredit; //double till int automatiskt avrundning neråt
         else credReturn = (int)balance;
     }
+    static void MoreCreditOrNot(){
+        if(balance < 0){
+            System.out.println("You may add credit or EXIT, we will return any excess credit");
+            System.out.println("Select:\n1 To add credit\n2 EXIT");
+            boolean wrongNumber = false;
+            int input = 0;
+            do {         
+                if(wrongNumber)System.out.println("Enter CORRECT number."); //Error if not a valid number or Exception
+                wrongNumber = false;
+                try {
+                    System.out.print("Make your choice: ");
+                    input = Vending_Machine.GetInput();
+                    System.out.println("");
+                    if(1 > input || input > 2)wrongNumber = true;
+                }
+            catch(Exception e){
+            System.out.println("Enter a numeric value, try again"); //Error Exception
+            wrongNumber = true;
+            }           
+            } while (wrongNumber);
+            if(input == 1){
+                AddToCredit();
+                Balance();
+                CheckOut();                
+            }          
+        }
+    }
+    
     static void Change(){
         int billsOf1000 = 0;
         int billsOf500 = 0;
