@@ -17,9 +17,9 @@ public class MyWallet {
     static int valueBill20 = 200;
 
     //Create shoppingCart ArrayLists
-    static ArrayList <String> shoppingCartType = new ArrayList<>();
-    static ArrayList <String> shoppingCartName = new ArrayList<>();
-    static ArrayList <Double> shoppingCartPrice = new ArrayList<>();
+    //static ArrayList <String> shoppingCartType = new ArrayList<>();
+    //static ArrayList <String> shoppingCartName = new ArrayList<>();
+    //static ArrayList <Double> shoppingCartPrice = new ArrayList<>();
     static ArrayList<MerchAbstract> shoppingCart = new ArrayList<>();
     
 
@@ -83,16 +83,16 @@ public class MyWallet {
     static void CheckOut(){
         DecimalFormat df = new DecimalFormat("#.00");
         //Display items in shopping cart
-        if(!shoppingCartName.isEmpty()){
+        if(!shoppingCart.isEmpty()){
             System.out.println("\nYou've ordered the following item/items:");
-            for (String name : shoppingCartName) {
-                System.out.println(name);         
+            for (MerchAbstract name : shoppingCart) {
+                System.out.println(name.name);         
             }
         } else System.out.println("\nYou've bought no items");
         
         //Now find out myDebit
-        for (Double price : shoppingCartPrice) {
-            myDebit += price;        
+        for (MerchAbstract price : shoppingCart) {
+            myDebit += price.price;        
         }
         System.out.println("Total debit is: "+df.format(myDebit)+" SEK.");
         
@@ -101,17 +101,6 @@ public class MyWallet {
         if(myCredit < myDebit)System.out.println("\nTo little funds, we will return any credit provided and stop the program.");
         else{
             System.out.println("You have sufficient funds, your items will be delivered and any excess credit returned to you.");
-           /* 
-            //check what type of mercandise to make use of Use methods.
-            boolean drink = false;
-            boolean food = false;
-            boolean merchandise = false;
-            for (String type : shoppingCartType) {
-                if(type.equals("drink"))drink = true;
-                if(type.equals("food"))food = true;
-                if(type.equals("merchandise"))merchandise = true;     
-            }
-            */
         }
     }
     static void Balance(){
@@ -179,11 +168,11 @@ public class MyWallet {
         System.out.println(text);        
         }      
     }
-    static void ByByAndUseTheStuff(){
-        System.out.println("Thank you for shopping with Vending Machine!");
-        //System.out.println(shoppingCart.size());
-        //Check type of merchandise and make use of Use
-        
+    static void ByBy(){
+        System.out.println("\nThank you for shopping with Vending Machine!");
+      
+        /*
+        //Check type of merchandise and make use of Use     
         boolean drink = false;
         boolean food = false;
         boolean merchandise = false;       
@@ -192,18 +181,7 @@ public class MyWallet {
             if(type.strTypeOfMerch.equals(food))food = true;
             if(type.strTypeOfMerch.equals(merchandise))merchandise = true;         
         }
-        //check what type of mercandise to make use of Use methods.
-        /*
-        boolean drink = false;
-        boolean food = false;
-        boolean merchandise = false;
-        for (String type : shoppingCartType) {
-            if(type.equals("drink"))drink = true;
-            if(type.equals("food"))food = true;
-            if(type.equals("merchandise"))merchandise = true;     
-        }
-        */
         //TODO Use Methods check drink for drink in merchList then could change Use to static..
-        
+        */
     }
 }

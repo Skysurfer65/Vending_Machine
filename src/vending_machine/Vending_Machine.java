@@ -32,7 +32,7 @@ public class Vending_Machine {
         MyWallet.CheckOut();
         MyWallet.Balance();
         MyWallet.Change();
-        MyWallet.ByByAndUseTheStuff();
+        MyWallet.ByBy();
         
     }
     
