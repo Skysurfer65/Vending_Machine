@@ -3,7 +3,10 @@ package vending_machine;
 
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author Richard Fehling
+ */
 public class Inventory {
     
     //Inventory

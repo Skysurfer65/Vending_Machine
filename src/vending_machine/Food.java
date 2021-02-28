@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vending_machine;
 
 import java.text.DecimalFormat;
@@ -10,7 +6,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Bax Musik
+ * @author Richard Fehling
  */
 public class Food extends MerchAbstract implements MerchInterface{
     //Attributes
@@ -47,6 +43,5 @@ public class Food extends MerchAbstract implements MerchInterface{
     @Override
     public void Use() {
         if(yes)System.out.println("\nIf your credit is good, you'll soon eat your "+name+" and smile!");
-    }
-    
+    }    
 }

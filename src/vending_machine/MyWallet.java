@@ -4,7 +4,10 @@ package vending_machine;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author Richard Fehling
+ */
 public class MyWallet {
     //Attributes
     static double myCredit = 0;
