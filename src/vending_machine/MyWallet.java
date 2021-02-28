@@ -94,7 +94,7 @@ public class MyWallet {
 
       
     static void CheckOut(){
-        DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df = new DecimalFormat("0.00");
         //Display items in shopping cart
         if(!shoppingCart.isEmpty()){
             System.out.println("\nYou've ordered the following item/items:");
@@ -113,13 +113,14 @@ public class MyWallet {
         System.out.println("Your credit is: "+df.format(myCredit)+" SEK.");
         if(myCredit < myDebit)System.out.println("\nTo little funds, we will return any credit provided and stop the program.");
         else{
-            System.out.println("You have sufficient funds, your items will be delivered and any excess credit returned to you.");
+            if(!shoppingCart.isEmpty())System.out.println("You have sufficient funds, your items will be delivered and any excess credit returned to you.");
+            else System.out.println("Your excess credit will be returned to you.");
         }
     }
     static void Balance(){
         balance = myCredit - myDebit;
         
-        if(balance == 0);
+        if(balance == 0)credReturn = 0;
         else if(balance < 0)credReturn = (int)myCredit; //double till int automatiskt avrundning neråt
         else credReturn = (int)balance;
     }
@@ -135,8 +136,9 @@ public class MyWallet {
         int coinsOf1 = 0;
         String text = "";
         
-        System.out.println("\nTotal amount returned will be "+credReturn+" SEK.");
+        
         while(credReturn != 0) {
+            System.out.println("\nTotal amount returned will be "+credReturn+" SEK.");
             if(credReturn >= 1000){
                 billsOf1000 = (int)(credReturn / 1000);
                 credReturn = credReturn - billsOf1000 * 1000;
@@ -181,20 +183,7 @@ public class MyWallet {
         System.out.println(text);        
         }      
     }
-    static void ByBy(){
+    static void ByeBye(){
         System.out.println("\nThank you for shopping with Vending Machine!");
-      
-        /*
-        //Check type of merchandise and make use of Use     
-        boolean drink = false;
-        boolean food = false;
-        boolean merchandise = false;       
-        for (MerchAbstract type : shoppingCart) {
-            if(type.strTypeOfMerch.equals(drink))drink = true;
-            if(type.strTypeOfMerch.equals(food))food = true;
-            if(type.strTypeOfMerch.equals(merchandise))merchandise = true;         
-        }
-        //TODO Use Methods check drink for drink in merchList then could change Use to static..
-        */
     }
 }

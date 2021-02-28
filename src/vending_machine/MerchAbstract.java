@@ -26,7 +26,7 @@ abstract public class MerchAbstract {
     }
     //Methods
     public void HeaderDescription() {
-        System.out.println(name+" is one of our finest selections of "+strTypeOfMerch);
+        System.out.println("Congratulations!\n"+name+" is one of our finest selections of "+strTypeOfMerch);
     }
     public void displayPrice() {
         System.out.println("One item costs "+price+" SEK.");

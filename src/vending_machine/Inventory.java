@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Inventory {
     
     //Inventory
-    static Drink item1= new Drink("drink", "Coca-Cola", "33cl can", 18, "sparkling");
+    static Drink item1= new Drink("drink", "Coca-Cola", "33cl can", 18.75, "sparkling");
     static Drink item2 = new Drink("drink", "Orange Juice", "50cl bottle", 22, "still");
     static Food item3 = new Food("food", "Ham Sandwich", "150 grams", 25, false);
     static Food item4 = new Food("food", "Veggie Sandwich", "100 grams", 30, true);

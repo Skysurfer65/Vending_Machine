@@ -1,5 +1,6 @@
 
 package vending_machine;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,7 +33,7 @@ public class Vending_Machine {
         MyWallet.CheckOut();
         MyWallet.Balance();
         MyWallet.Change();
-        MyWallet.ByBy();
+        MyWallet.ByeBye();
         
     }
     
@@ -73,9 +74,10 @@ public class Vending_Machine {
         
         //MakeMerchMenu function dynamic menu 
         public static void MakeMerchMenu(ArrayList merchList){
+            DecimalFormat df = new DecimalFormat("#.00");
             int n = 1;
             for (MerchAbstract i : Inventory.merchList) {
-                System.out.println( n +" "+ i.name+"\t\t"+i.price+" SEK.");
+                System.out.println( n +" "+i.name+"\t\t\t"+df.format(i.price)+" SEK.");
                 n++;}           
         }
         

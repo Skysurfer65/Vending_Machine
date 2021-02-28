@@ -5,6 +5,7 @@
  */
 package vending_machine;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -31,11 +32,12 @@ public class Food extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Buy() {
+        DecimalFormat df = new DecimalFormat("#.00");
         yes = false;
-        System.out.println("It costs "+price+" SEK.");
+        System.out.println("It costs "+df.format(price)+" SEK.");
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
         Scanner scan = new Scanner(System.in);
-        String input = scan.next();
+        String input = scan.next();//Input string
         if(input.equals("y")){
             MyWallet.shoppingCart.add(this);
             yes = true;
@@ -44,7 +46,7 @@ public class Food extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Use() {
-        if(yes)System.out.println("\nYou will soon eat your "+name+" and smile!");
+        if(yes)System.out.println("\nIf your credit is good, you'll soon eat your "+name+" and smile!");
     }
     
 }
