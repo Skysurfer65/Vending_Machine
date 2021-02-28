@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Drink extends MerchAbstract implements MerchInterface{
     //Attributes
     public String strStillOrSparkling;
+    public boolean yes;
     //public static double debit;
    
     
@@ -33,6 +34,7 @@ public class Drink extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Buy() {
+        yes = false;
         System.out.println("It costs "+price+" SEK.");
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
         Scanner scan = new Scanner(System.in);
@@ -42,12 +44,13 @@ public class Drink extends MerchAbstract implements MerchInterface{
             //MyWallet.shoppingCartName.add(name);
             //MyWallet.shoppingCartPrice.add(price);
             MyWallet.shoppingCart.add(this);
+            yes = true;
         }
     }
 
     @Override
     public void Use() {
-        System.out.println("\nYou will soon be drinking your "+name+"!");
+        if(yes)System.out.println("\nYou will soon be drinking your "+name+"!");      
     }
     
 }
