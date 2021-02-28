@@ -139,9 +139,8 @@ public class MyWallet {
         int coinsOf1 = 0;
         String text = "";
         
-        
-        while(credReturn != 0) {
-            System.out.println("\nTotal amount returned will be "+credReturn+" SEK.");
+    System.out.println("\nTotal amount returned will be "+credReturn+" SEK.");
+        while(credReturn != 0) {           
             if(credReturn >= 1000){
                 billsOf1000 = (int)(credReturn / 1000);
                 credReturn = credReturn - billsOf1000 * 1000;

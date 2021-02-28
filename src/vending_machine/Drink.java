@@ -2,7 +2,6 @@
 package vending_machine;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 /**
  *
@@ -34,9 +33,8 @@ public class Drink extends MerchAbstract implements MerchInterface{
         DecimalFormat df = new DecimalFormat("#.00");
         yes = false;
         System.out.println("It costs "+df.format(price)+" SEK.");
-        System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
-        Scanner scan = new Scanner(System.in);
-        String input = scan.next();//Input string
+        System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: "); 
+        String input = Vending_Machine.GetInputString();
         if(input.equals("y")){
             MyWallet.shoppingCart.add(this);
             yes = true;

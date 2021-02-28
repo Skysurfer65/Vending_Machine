@@ -47,6 +47,13 @@ public class Vending_Machine {
             return input;       
         }
         
+        //GetInputString function String
+        public static String GetInputString(){
+            Scanner scan = new Scanner(System.in);
+            String input = scan.next().trim(); //Trim away space
+            return input;
+        }
+        
         //MakeMenuAndSelect function
         public static int MakeMenuAndSelect(){
             int input = 0;
