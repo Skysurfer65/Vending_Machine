@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Merchandise extends MerchAbstract implements MerchInterface{
     //Attributes
     public String color;
+    public boolean yes;
     //Constructor
     public Merchandise(String strTypeOfMerch, String name, String strPackage, double price, String color){
         super(strTypeOfMerch, name, strPackage, price);
@@ -32,22 +33,21 @@ public class Merchandise extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Buy() {
+        yes = false;
         System.out.println("It costs "+price+" SEK.");
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
         Scanner scan = new Scanner(System.in);
         String input = scan.next();
         if(input.equals("y")){
-            //MyWallet.shoppingCartType.add(strTypeOfMerch);
-            //MyWallet.shoppingCartName.add(name);
-            //MyWallet.shoppingCartPrice.add(price);
             MyWallet.shoppingCart.add(this);
+            yes = true;
         } 
         
     }
 
     @Override
     public void Use() {
-        System.out.println("\nWhen you get it after checkout bring it out from the "+strPackage+" and put it on right away!");
+        if(yes)System.out.println("\nWhen you get it after checkout bring it out from the "+strPackage+" and put it on right away!");
     }
     
     

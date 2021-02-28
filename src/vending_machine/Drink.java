@@ -40,9 +40,6 @@ public class Drink extends MerchAbstract implements MerchInterface{
         Scanner scan = new Scanner(System.in);
         String input = scan.next();
         if(input.equals("y")){
-            //MyWallet.shoppingCartType.add(strTypeOfMerch);
-            //MyWallet.shoppingCartName.add(name);
-            //MyWallet.shoppingCartPrice.add(price);
             MyWallet.shoppingCart.add(this);
             yes = true;
         }

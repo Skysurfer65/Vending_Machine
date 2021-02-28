@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Food extends MerchAbstract implements MerchInterface{
     //Attributes
     public boolean glutenFree;
+    public boolean yes;
     //Constructor
     public Food(String strTypeOfMerch, String name, String strPackage, double price, boolean glutenFree){
         super(strTypeOfMerch, name, strPackage, price);
@@ -30,21 +31,20 @@ public class Food extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Buy() {
+        yes = false;
         System.out.println("It costs "+price+" SEK.");
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
         Scanner scan = new Scanner(System.in);
         String input = scan.next();
         if(input.equals("y")){
-            //MyWallet.shoppingCartType.add(strTypeOfMerch);
-            //MyWallet.shoppingCartName.add(name);
-            //MyWallet.shoppingCartPrice.add(price);
             MyWallet.shoppingCart.add(this);
+            yes = true;
         }   
     }
 
     @Override
     public void Use() {
-        System.out.println("\nYou will soon eat your "+name+" and smile!");
+        if(yes)System.out.println("\nYou will soon eat your "+name+" and smile!");
     }
     
 }
