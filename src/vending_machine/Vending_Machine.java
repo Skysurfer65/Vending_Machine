@@ -66,7 +66,7 @@ public class Vending_Machine {
                 System.out.println("\nVending Machine");
                 System.out.println("_________________");
            
-                //Make selection menu
+                //Make dynamic selection menu
                 MakeMerchMenu(Inventory.merchList);
             
                 //Choice one item for description and purchase
