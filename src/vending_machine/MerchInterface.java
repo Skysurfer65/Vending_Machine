@@ -9,6 +9,5 @@ public interface MerchInterface {
     //Methods
     void Description();
     void Buy();
-    void Use();
-    
+    void Use();    
 }

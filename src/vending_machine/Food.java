@@ -11,13 +11,14 @@ public class Food extends MerchAbstract implements MerchInterface{
     //Attributes
     public boolean glutenFree;
     public boolean yes;
+    
     //Constructor
     public Food(String strTypeOfMerch, String name, String strPackage, double price, boolean glutenFree){
         super(strTypeOfMerch, name, strPackage, price);
         this.glutenFree = glutenFree;
     }
+    
     //Methods
-
     @Override
     public void Description() {
         System.out.println("Our "+name+" is fresh and stored in cool conditions.");

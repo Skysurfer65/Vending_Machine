@@ -39,9 +39,9 @@ public class Inventory {
         if(item7.price != 0)merchList.add(item7);
         if(item8.price != 0)merchList.add(item8);
         if(item9.price != 0)merchList.add(item9);
-        if(item10.price != 0)merchList.add(item10);
-        
+        if(item10.price != 0)merchList.add(item10);        
     }
+    
     static void DescriptionAndBuy(int input){
         switch(input){
             case 1:

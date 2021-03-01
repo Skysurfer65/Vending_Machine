@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Richard Fehling
  */
 public class MyWallet {
-    //Attributes
+    //Class variables
     static double myCredit = 0;
     static double myDebit = 0;
     static double balance;
@@ -122,6 +122,7 @@ public class MyWallet {
             else System.out.println("Your excess credit will be returned to you.");
         }
     }
+    
     static void Balance(){
         balance = myCredit - myDebit;
         
@@ -129,6 +130,7 @@ public class MyWallet {
         else if(balance < 0)credReturn = (int)myCredit; //double till int automatiskt avrundning neråt
         else credReturn = (int)balance;
     }
+    
     static void MoreCreditOrNot(){
         if(balance < 0){
             System.out.println("You may add credit or EXIT, we will return any excess credit");
@@ -215,6 +217,7 @@ public class MyWallet {
         System.out.println(text);        
         }      
     }
+    
     static void ByeBye(){
         System.out.println("\nThank you for shopping with Vending Machine!");
     }

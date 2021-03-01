@@ -11,13 +11,14 @@ public class Merchandise extends MerchAbstract implements MerchInterface{
     //Attributes
     public String color;
     public boolean yes;
+    
     //Constructor
     public Merchandise(String strTypeOfMerch, String name, String strPackage, double price, String color){
         super(strTypeOfMerch, name, strPackage, price);
         this.color = color;
     }
+    
     //Methods
-
     @Override
     public void Description() {
         System.out.println("This "+name+" is branded with the \"VendingMachine\" logo.");
