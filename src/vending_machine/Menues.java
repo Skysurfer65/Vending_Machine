@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Richard Fehling
  */
 public class Menues {
-    //MakeMenuAndSelect function
+    //MakeMenuAndSelect method
     public static int MakeMenuAndSelect(){
         int input = 0;
         boolean wrongNumber = false;
@@ -37,7 +37,7 @@ public class Menues {
         return input;
     }
     
-    //MakeMerchMenu function dynamic menu of merchList 
+    //MakeMerchMenu method dynamic menu of merchList 
     public static void MakeMerchMenu(ArrayList merchList){
     DecimalFormat df = new DecimalFormat("#.00");
     int n = 1;
@@ -46,7 +46,7 @@ public class Menues {
         n++;}           
     }
     
-    //ContShoppingOrCheckout function
+    //ContShoppingOrCheckout method
     public static int ContShoppingOrCheckout(){
     int input = 0;
     boolean wrongNumber = false;
