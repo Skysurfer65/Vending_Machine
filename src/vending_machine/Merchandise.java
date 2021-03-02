@@ -35,7 +35,7 @@ public class Merchandise extends MerchAbstract implements MerchInterface{
         System.out.println("It costs "+df.format(price)+" SEK.");
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
         String input = Vending_Machine.GetInputString();
-        if(input.equals("y")){
+        if((input.equals("y")) || (input.equals("Y"))){
             MyWallet.shoppingCart.add(this);
             yes = true;
         } 
