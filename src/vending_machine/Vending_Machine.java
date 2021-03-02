@@ -34,7 +34,7 @@ public class Vending_Machine {
 
         } while (input2 == 1);
 
-        //Shopping cart
+        //Shopping cart checkout
         MyWallet.FindOutMyDebt();
         MyWallet.CheckOut();
         MyWallet.Balance();

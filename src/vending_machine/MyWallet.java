@@ -127,8 +127,8 @@ public class MyWallet {
         balance = myCredit - myDebit;
         
         if(balance == 0)credReturn = 0;
-        else if(balance < 0)credReturn = (int)myCredit; //double till int automatiskt avrundning neråt
-        else credReturn = (int)balance;
+        else if(balance < 0)credReturn = (int)myCredit; 
+        else credReturn = (int)balance;//double till int automatiskt avrundning neråt
     }
     
     static void MoreCreditOrNot(){
