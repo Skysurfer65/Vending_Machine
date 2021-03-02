@@ -38,7 +38,7 @@ public class Drink extends MerchAbstract implements MerchInterface{
         if((input.equals("y")) || (input.equals("Y"))){
             MyWallet.shoppingCart.add(this);
             yes = true;
-        }
+        } else System.out.println("No purchase, enter only letter \"y\" for purchase.");
     }
 
     @Override

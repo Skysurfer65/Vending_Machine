@@ -16,11 +16,11 @@ public class Inventory {
     static Food item4 = new Food("food", "Veggie Sandwich", "100 grams", 30, true);
     static Merchandise item5 = new Merchandise("merchandise", "Baseball Cap Blue", "mesh-net", 50, "blue");
     static Merchandise item6 = new Merchandise("merchandise", "Baseball Cap Red", "mesh-net", 50, "red");
-    //Empty inventory to test dynamics, max items in Vending_Machine is 10
-    static Drink item7 = new Drink("drink", "", "", 0, "");
-    static Food item8 = new Food("food", "", "", 0, false);
-    static Merchandise item9 = new Merchandise("merchandise", "", "", 0, "");
-    static Merchandise item10 = new Merchandise("merchandise", "", "", 0, "");
+    //Empty inventory (price set to Zero) to test dynamics, max items in Vending_Machine is 10
+    static Drink item7 = new Drink("drink", "Fanta", "33cl", 0, "sparkling");
+    static Food item8 = new Food("food", "Cheese Sandwich", "100 grams", 0, false);
+    static Merchandise item9 = new Merchandise("merchandise", "Jacket Blue", "box", 0, "blue");
+    static Merchandise item10 = new Merchandise("merchandise", "Jacket Red", "box", 0, "red");
     
     
         
