@@ -108,7 +108,7 @@ public class MyWallet {
         if(!shoppingCart.isEmpty()){
             System.out.println("\nYou've ordered the following item/items:");
             for (MerchAbstract name : shoppingCart) {
-                System.out.println(name.name);         
+                System.out.println(name.name);
             }
         } else System.out.println("\nYou've bought no items");
 
