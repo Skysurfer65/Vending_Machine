@@ -1,7 +1,5 @@
 
 package vending_machine;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -18,9 +16,9 @@ public class Vending_Machine {
         MyWallet.AddToCredit();
         
         //Start of main loop continue shopping or not
-        int input2;
+        int input;
         do {                      
-            //Creating dynamic menu with input and select item
+            //Creating dynamic menu with select item input as return
             int input1 = Menues.MakeMenuAndSelect();
         
             //Merchandise description and add to cart
@@ -30,9 +28,9 @@ public class Vending_Machine {
             Inventory.DescriptionAndBuy(input1);
         
             //Continue shopping or checkout
-            input2 = Menues.ContShoppingOrCheckout();
+            input = Menues.ContShoppingOrCheckout();
 
-        } while (input2 == 1);
+        } while (input == 1);//Condition for main loop continue shopping or not
 
         //Shopping cart checkout
         MyWallet.FindOutMyDebt();
@@ -41,14 +39,13 @@ public class Vending_Machine {
         MyWallet.MoreCreditOrNot();
         MyWallet.Change();
         MyWallet.ByeBye();
-        
     }
     
     //GetInput function integer
     public static int GetInput(){
         Scanner scan = new Scanner(System.in);
-        int input = Integer.parseInt(scan.next());
-        return input;       
+        int input = Integer.parseInt(scan.next());//Parse to int to safeguard exception handling
+        return input;
     }
         
     //GetInputString function String

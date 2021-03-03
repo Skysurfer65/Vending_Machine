@@ -25,10 +25,11 @@ public class Inventory {
     
         
        
-    //Creating ArrayList
+    //Creating ArrayList of available products
     static ArrayList<MerchAbstract> merchList = new ArrayList<>();
     
     //Methods
+    //Check if price is not set to zero then add to list
     static void FillMerchList(){
         if(item1.price != 0)merchList.add(item1);
         if(item2.price != 0)merchList.add(item2);
@@ -42,6 +43,8 @@ public class Inventory {
         if(item10.price != 0)merchList.add(item10);        
     }
     
+    //In this switchcase we can reach all avail. products specific class methods
+    //Input value to this method is already check for valid input
     static void DescriptionAndBuy(int input){
         switch(input){
             case 1:

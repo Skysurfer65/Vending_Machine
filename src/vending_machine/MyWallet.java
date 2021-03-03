@@ -9,27 +9,29 @@ import java.util.ArrayList;
  * @author Richard Fehling
  */
 public class MyWallet {
-    //Class variables
-    static double myCredit = 0;
-    static double myDebit = 0;
-    static double balance;
-    static int credReturn;
-    static int valueCoin1 = 10;
-    static int valueCoin5 = 50;
-    static int valueCoin10 = 100;
-    static int valueBill20 = 200;
-    static int valueBill50 = 500;
-    static int valueBill100 = 1000;
+    //Class variables all set to private
+    private static double myCredit = 0;
+    private static double myDebit = 0;
+    private static double balance;
+    private static int credReturn;
+    //Hardcoded value of users wallet, here 10 coins/bills of all values
+    private static int valueCoin1 = 10;
+    private static int valueCoin5 = 50;
+    private static int valueCoin10 = 100;
+    private static int valueBill20 = 200;
+    private static int valueBill50 = 500;
+    private static int valueBill100 = 1000;
 
     //Create shoppingCart ArrayLists
     static ArrayList<MerchAbstract> shoppingCart = new ArrayList<>();
     
 
     //Methods
-    static void AddToCredit(){ //TODO increase to 100SEK bills
-        boolean wrongNumber;
+    static void AddToCredit(){
+        boolean wrongNumber;//Boolean for wrong entry and also enter more money
         do {            
             wrongNumber = true;
+            //Menu
             System.out.println("\nVending Machine");
             System.out.println("_________________");
             System.out.println("\nPut money in the machine: ");
@@ -43,6 +45,7 @@ public class MyWallet {
             System.out.println("Your current credit: "+myCredit);
             System.out.print("Select a number to add to yor credit: ");
             try {
+                //Input switchcase
                 int input = Vending_Machine.GetInput();
                 switch(input){
                     case 1:
@@ -82,17 +85,17 @@ public class MyWallet {
                         }
                         break;
                     case 7:
-                        wrongNumber = false;
+                        wrongNumber = false;//Breaks out of switchcase if selected to EXIT
                         break;
                     default:
-                        wrongNumber = true;
+                        wrongNumber = true;//Wrong number return to menu in this method
                         break;
                 }
                               
             } catch (Exception e) {
-                wrongNumber = true;
+                wrongNumber = true;//Exception handling return to menu in this method
             }            
-        } while (wrongNumber);  
+        } while (wrongNumber);//Loopconditions wrong numeric value, exception or user don't select to exit 
     }
     
     static void FindOutMyDebt(){
@@ -103,8 +106,9 @@ public class MyWallet {
     }
       
     static void CheckOut(){
+        //DecimalFormat to show price nicely with two digits
         DecimalFormat df = new DecimalFormat("0.00");
-        //Display items in shopping cart
+        //Display items in shopping cart or if it's empty
         if(!shoppingCart.isEmpty()){
             System.out.println("\nYou've ordered the following item/items:");
             for (MerchAbstract name : shoppingCart) {
@@ -127,31 +131,33 @@ public class MyWallet {
         balance = myCredit - myDebit;
         
         if(balance == 0)credReturn = 0;
-        else if(balance < 0)credReturn = (int)myCredit; 
-        else credReturn = (int)balance;//double till int automatiskt avrundning neråt
+        else if(balance < 0)credReturn = (int)myCredit;
+        else credReturn = (int)balance;//double to int will take away digits and will work as round to floor
     }
     
     static void MoreCreditOrNot(){
         if(balance < 0){
+            //Menu for options to add credit or EXIT
             System.out.println("You may add credit or EXIT, we will return any excess credit");
             System.out.println("Select:\n1 To add credit\n2 EXIT");
-            boolean wrongNumber = false;
+            boolean wrongNumber = false;//Value set to false not to display error message on first run
             int input = 0;
             do {         
-                if(wrongNumber)System.out.println("Enter CORRECT number."); //Error if not a valid number or Exception
+                if(wrongNumber)System.out.println("Enter CORRECT number."); //Error meassage if not a valid number or exception
                 wrongNumber = false;
                 try {
                     System.out.print("Make your choice: ");
                     input = Vending_Machine.GetInput();
                     System.out.println("");
-                    if(1 > input || input > 2)wrongNumber = true;
+                    if(1 > input || input > 2)wrongNumber = true;//Loop if wrong number
                 }
             catch(Exception e){
             System.out.println("Enter a numeric value, try again"); //Error Exception
-            wrongNumber = true;
+            wrongNumber = true;//Loop if exception
             }           
-            } while (wrongNumber);
+            } while (wrongNumber);//Loop while wrong numeric value, exception
             if(input == 1){
+                //If user decides to add credit we reuse the following methods
                 AddToCredit();
                 Balance();
                 CheckOut();                
@@ -195,14 +201,14 @@ public class MyWallet {
                 coinsOf10 = (int)(credReturn / 10);
                 credReturn = credReturn - coinsOf10 * 10;
             } else if (credReturn >= 5){
-                coinsOf5 = 1;
+                coinsOf5 = 1;//No need for division here since criteria was return change with highest value coins/bills
                 credReturn -= 5;
             } else{
                 coinsOf1 = credReturn;
                 credReturn = 0;
             } 
         }
-        //Printout for credReturn
+        //Printout for credReturn, tried other technique for adding to text string "text"
         if(balance != 0){
         System.out.println("It will be provided as follows:");
         if(billsOf1000 != 0)text += "\n"+billsOf1000+" bills of 1000 SEK.";

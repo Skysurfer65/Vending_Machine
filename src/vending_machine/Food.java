@@ -9,8 +9,8 @@ import java.text.DecimalFormat;
  */
 public class Food extends MerchAbstract implements MerchInterface{
     //Attributes
-    public boolean glutenFree;
-    public boolean yes;
+    private final boolean glutenFree;
+    private boolean yes;//Boolean for purchase
     
     //Constructor
     public Food(String strTypeOfMerch, String name, String strPackage, double price, boolean glutenFree){
@@ -28,10 +28,13 @@ public class Food extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Buy() {
+        //DecimalFormat to show price nicely with two digits
         DecimalFormat df = new DecimalFormat("#.00");
+        //Boolean set
         yes = false;
         System.out.println("It costs "+df.format(price)+" SEK.");
         System.out.print("If you want this item press the key \"y\" for yes and \"n\" for no: ");
+        //Analyze input string if purchase or not
         String input = Vending_Machine.GetInputString();
         if((input.equals("y")) || (input.equals("Y"))){
             MyWallet.shoppingCart.add(this);
@@ -41,6 +44,7 @@ public class Food extends MerchAbstract implements MerchInterface{
 
     @Override
     public void Use() {
+        //If purchase println
         if(yes)System.out.println("\nIf your credit is good, you'll soon eat your "+name+" and smile!");
     }    
 }
