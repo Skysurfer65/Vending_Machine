@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Richard Fehling
  */
 public class MyWallet {
-    //Class variables all set to private
+    //Class member variables all set to private static
     private static double myCredit = 0;
     private static double myDebit = 0;
     private static double balance;
@@ -128,8 +128,7 @@ public class MyWallet {
     }
     
     static void Balance(){
-        balance = myCredit - myDebit;
-        
+        balance = myCredit - myDebit;      
         if(balance == 0)credReturn = 0;
         else if(balance < 0)credReturn = (int)myCredit;
         else credReturn = (int)balance;//double to int will take away digits and will work as round to floor

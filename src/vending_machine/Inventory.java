@@ -44,7 +44,7 @@ public class Inventory {
     }
     
     //In this switchcase we can reach all avail. products specific class methods
-    //Input value to this method is already check for valid input
+    //Input value to this method is already checked for valid input
     static void DescriptionAndBuy(int input){
         switch(input){
             case 1:

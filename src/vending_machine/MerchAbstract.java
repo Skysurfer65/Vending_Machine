@@ -7,10 +7,10 @@ package vending_machine;
  */
 abstract public class MerchAbstract {
     //Attributs
-    public final String strTypeOfMerch;
-    public final String name;
-    public final String strPackage;
-    public final double price;
+    private final String strTypeOfMerch;
+    protected final String name;
+    protected final String strPackage;
+    protected final double price;
     
     
     //Constructor
@@ -26,10 +26,4 @@ abstract public class MerchAbstract {
     public void HeaderDescription() {
         System.out.println("Congratulations!\n"+name+" is one of our finest selections of "+strTypeOfMerch);
     }
-    /*
-    //Generic price information for all class objects that inherit this abstract class
-    public void displayPrice() {
-        System.out.println("One item costs "+price+" SEK.");
-    }
-    */
 }

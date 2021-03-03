@@ -38,7 +38,7 @@ public class Food extends MerchAbstract implements MerchInterface{
         String input = Vending_Machine.GetInputString();
         if((input.equals("y")) || (input.equals("Y"))){
             MyWallet.shoppingCart.add(this);
-            yes = true;
+            yes = true;//Boolean set for purchase
         }   
     }
 
